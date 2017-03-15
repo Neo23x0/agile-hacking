@@ -1,0 +1,1 @@
+HOST=192.168.178.88;for((port=1;port<=65535;++port));do echo -en "$port ";if wget -F -S -t 1 -T 1 -v -O banner.txt $HOST:$port 2>&1 | grep connected;then echo -en "\n\nport $port/tcp is open\n\n";cat banner.txt;fi;done

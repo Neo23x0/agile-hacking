@@ -1,0 +1,1 @@
+80..99 | %{try{(new-Object system.Net.Sockets.TcpClient).Connect('localhost',$_);write-host "$_ Open"}catch{write-host 'Closed'}}

@@ -1,0 +1,1 @@
+#!/usr/bin/perl use IO::Socket; @ARGV||die'usage: perl scanner.pl host [number of threads]'; ($|,$h,$t)=(1,@ARGV,20);$p=65535/$t; for$n(1..$t){ pipe($r[$n],$w[$n]);next if fork; print IO::Socket::INET->new(PeerAddr=>$h,PeerPort=>$_)?"Port $_ open\n":''for($p*($n-1)...$p*$n-1); print{$w[$n]}'x';exit; } read($r[$_],$x,1)for(1..$t);

@@ -1,0 +1,1 @@
+@ECHO OFF & ECHO start & (FOR /L %p IN (1,1,65535) DO (FOR /F "tokens=*" %a IN ('netsh diag connect iphost 127.0.0.1 %p ^| find /C /I "[NONE]"') DO ( IF %a == 0 echo %p))) & ECHO stop & @ECHO ON
